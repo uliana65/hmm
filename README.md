@@ -17,8 +17,6 @@ Given the initial, transition, and emission probabilities learnt from a corpus, 
 Produces a test_output.tt file with model's tagging predictions. To evaluate the predictions use this command:
 `python eval.py --path PATH_TO_DATA --test_data TEST_DATA_FILE_NAME --model_pred test_output.tt`
 
-
-
 ## Results
 Parsing results for a German mixed-genre dataset (see res folder):
 
@@ -40,6 +38,12 @@ By part of speech:
 |PUNCT|0.96|1.00|0.98|13%|
 |X|0.22|0.09|0.12|0.1%|
 
-As you can see, it mostly struggles with the undefined category (X) which is infrequent in the training corpus (<1%).  
+As you can see, it mostly struggles with the undefined category (X) which is infrequent in the training corpus (<1%). As also depicted in the graph below, more frequent categories (>1%) don't seem to pose a challenge for the model. Apart from adjectives (ADJ), F1 for every POS reaches over 80%. With ADJ, even though this POS has almost the same proportion in the test data, the model doesn't recognize this tag quite often (recall < precision). This could be due to competing NOUN tag (a typical position of adjectives in a German sentence - DET ADJ NOUN) that comes more often after DET in the learnt transitional probabilities. 
 
-Overall, HMM lags behind state-of-the-art neural methods for POS tagging, but is still a helpful technique for low-resource scenarios.
+![example_sentence](https://github.com/uliana65/hmm/blob/main/figures/f1_by_distribution.png)
+
+Overall, HMM lags behind state-of-the-art neural methods for POS tagging, but is still a helpful technique for low-resource scenarios. Looking at the graph below, it's clear that the model is able to reach a decent accuracy (~73%-85%) even on a small batch of training data (less than 2000 annotated sentences in this case). The performance wetn up to 90% at about 7000 examples, half of the training data set. This is even more impressive if we consider that in my implementation the data is not lemmatized hence the emission probabilities don't differentiate between forms of one and the same word and store them as separate entities.
+
+![example_sentence](https://github.com/uliana65/hmm/blob/main/figures/accuracy_by_training_size.png)
+
+However, among the drawbacks of HMM models for sequence tagging is its computational intensity. Although optimized, the search for the most likely tag sequence is much slower compared tagging with NN models.     
