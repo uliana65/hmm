@@ -14,7 +14,7 @@ Given the initial, transition, and emission probabilities learnt from a corpus, 
 ## Training
 `python hmm.py --path PATH_TO_DATA --train_data TRAIN_DATA_FILE_NAME --test_data TEST_DATA_FILE_NAME`
 
-Produces a test_output.tt file with model's tagging predictions. To evaluate the predictions use this command: 
+Produces a test_output.tt file with model's tagging predictions. To evaluate the predictions use this command:   
 `python eval.py --path PATH_TO_DATA --test_data TEST_DATA_FILE_NAME --model_pred test_output.tt`
 
 ## Results
@@ -38,7 +38,7 @@ By part of speech:
 |PUNCT|0.96|1.00|0.98|13%|
 |X|0.22|0.09|0.12|0.1%|
 
-As you can see, it mostly struggles with the undefined category (X) which is infrequent in the training corpus (<1%). As also depicted in the graph below, more frequent categories (>1%) don't seem to pose a challenge for the model. Apart from adjectives (ADJ), F1 for every POS reaches over 80%. With ADJ, even though this POS has almost the same proportion in the test data, the model doesn't recognize this tag quite often (recall < precision). As further analysis shows, this is mainly due to the competing NOUN tag that comes more often after DET in the learnt transitional probabilities. This is not surprising as it is a typical position of adjectives in a German sentence - DET ADJ NOUN.
+As you can see, it mostly struggles with the undefined category (X) which is infrequent in the training corpus (<1%). As also depicted in the graph below, more frequent categories (>1%) don't seem to pose a challenge for the model. Apart from adjectives (ADJ), F1 for every POS reaches over 80%. With ADJ, even though this POS has almost the same proportion in the test data, the model doesn't recognize this tag quite often (recall < precision). As further analysis shows, this is mainly due to the competing NOUN tag that comes more often after DET in the learnt transitional probabilities. This is not surprising as it is a typical position of adjectives in a German sentence - DET (ADJ) NOUN.
 
 ![example_sentence](https://github.com/uliana65/hmm/blob/main/figures/f1_by_distribution.png)
 
