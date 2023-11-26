@@ -42,7 +42,7 @@ As you can see, it mostly struggles with the undefined category (X) which is inf
 
 ![example_sentence](https://github.com/uliana65/hmm/blob/main/figures/f1_by_distribution.png)
 
-Overall, HMM lags behind state-of-the-art neural methods for POS tagging, but is still a helpful technique for low-resource scenarios. Looking at the graph below, it's clear that the model is able to reach a decent accuracy (~73%-85%) even on a small batch of training data (less than 2000 annotated sentences in this case). The performance wetn up to 90% at about 7000 examples, half of the training data set. This is even more impressive if we consider that in my implementation the data is not lemmatized hence the emission probabilities don't differentiate between forms of one and the same word and store them as separate entities.
+Overall, HMM lags behind state-of-the-art neural methods for POS tagging, but is still a helpful technique for low-resource scenarios. Looking at the graph below, it's clear that the model is able to reach a decent accuracy (~73%-85%) even on a small batch of training data (less than 2000 annotated sentences in this case). The performance went up to 90% at about 7000 examples, half of the training data set. This is even more impressive if we consider that in my implementation the data is not lemmatized hence the emission probabilities don't differentiate between forms of one and the same word and store them as separate entities.
 
 ![example_sentence](https://github.com/uliana65/hmm/blob/main/figures/accuracy_by_training_size.png)
 
