@@ -26,7 +26,6 @@ for line_gold, line_pred in zip(file_gold, file_model):
 
     if len(line_gold) != 0:
 
-        print(line_gold.split("\t"))
         word_gold, tag_gold = line_gold.split("\t")
         word_pred, tag_pred = line_pred.split("\t")
 
