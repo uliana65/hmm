@@ -7,7 +7,7 @@ The method is based on three types of probabilities:
 - TRANSITION $`p(tag_i|{tag}_{i-1})`$ : probability of the tag in position $`i`$ appearing after the tag in position $`i-1`$; 
 - EMISSION $`p(word_i|tag_i)`$ probability of word in position $`i`$ appearing together with tag in position $`i`$.
 
-![example_sentence](https://github.com/uliana65/hmm/figures/sent_example.png)
+![example_sentence](https://github.com/uliana65/hmm/blob/main/figures/sent_example.png)
 
 Given the initial, transition, and emission probabilities learnt from a corpus, the most optimal POS sequence is selected with the Viterbi algorithm. 
 
