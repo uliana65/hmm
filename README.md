@@ -14,7 +14,7 @@ Given the initial, transition, and emission probabilities learnt from a corpus, 
 ## Training
 `python hmm.py --path PATH_TO_DATA --train_data TRAIN_DATA_FILE_NAME --test_data TEST_DATA_FILE_NAME`
 
-Produces a test_output.tt file with model's tagging predictions. To evaluate the predictions use this command:
+Produces a test_output.tt file with model's tagging predictions. To evaluate the predictions use this command: 
 `python eval.py --path PATH_TO_DATA --test_data TEST_DATA_FILE_NAME --model_pred test_output.tt`
 
 ## Results
